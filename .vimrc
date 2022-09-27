@@ -14,7 +14,7 @@
 " zM to close all folds
 " zf to create a fold
 
-" VIMSCRIPT --------------------------------------------------------------- {{{
+" BASIC-SETTINGS --------------------------------------------------------------- {{{
 " Mouse will work
 set mouse=a
 
@@ -28,7 +28,7 @@ set autoindent
 syntax on
 
 " set line number
-set number
+set number relativenumber
 
 " ignorecase when searching
 set ignorecase
@@ -68,19 +68,51 @@ set path+=**
 " Display all matching files when tab complete
 set wildmenu
 
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" This will enable code folding.
+" Use the marker method of folding.
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
 " }}}
 
-" STATUS LINE ------------------------------------------------------------ {{{
+" STATUSLINE ------------------------------------------------------------ {{{
+" Returns current branch or an empty string if there is no git repository
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.'  ':''
+endfunction
 
 " Clear status line when vimrc is reloaded.
 set statusline=
 
+" Color first block
+set statusline+=%#Visual#
+" Show git if exists.
+set statusline+=%{StatuslineGit()}
+
+" Color second block
+set statusline+=%#LineNr#
 " Status line left side.
-set statusline+=\ %M\ %Y
+set statusline+=\ %n\ %f\ %m\ %Y\ %R
 
 " Use a divider to separate the left side from the right side.
 set statusline+=%=
 
+" Color third block
+set statusline+=%#VisualNOS#
 " Status line right side.
 set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c  
 
@@ -95,7 +127,17 @@ set laststatus=2
 " https://github.com/preservim/nerdtree -- full documention here
 
 " map Ctrl-N to toggle NerdTree
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
+
+" Refresh NerdTree if its open otherwise toggle NerdTree
+map <C-n> :call NERDTreeToggleAndRefresh()<CR>
+
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+  endif
+endfunction
 
 " auto load NERDTREE when starting vim with no file/folder
 autocmd StdinReadPre * let s:std_in=1
@@ -120,23 +162,6 @@ let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', 
 let g:spacegray_use_italics = 1
 
 colorscheme spacegray
-
-" }}}
-
-" MY-SETTINGS -------------------------------------------------------------- {{{
-" Make wildmenu behave like similar to Bash completion.
-set wildmode=list:longest
-
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with these extensions.
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
-" This will enable code folding.
-" Use the marker method of folding.
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
 
 " }}}
 
