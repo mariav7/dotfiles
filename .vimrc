@@ -86,14 +86,15 @@ augroup END
 
 " STATUSLINE ------------------------------------------------------------ {{{
 " Returns current branch or an empty string if there is no git repository
-function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+function Gitbranch()
+  let l:branchname = trim(system("git -C " . expand("%:h") . " branch --show-current 2>/dev/null"))
+  return strlen(l:branchname) > 0?'   '.l:branchname.'  ':''
 endfunction
 
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.'  ':''
-endfunction
+augroup Gitget
+    autocmd!
+    autocmd BufEnter * let b:git_branch = Gitbranch()
+augroup END
 
 " Clear status line when vimrc is reloaded.
 set statusline=
@@ -101,7 +102,7 @@ set statusline=
 " Color first block
 set statusline+=%#Visual#
 " Show git if exists.
-set statusline+=%{StatuslineGit()}
+set statusline+=%{b:git_branch}
 
 " Color second block
 set statusline+=%#LineNr#
