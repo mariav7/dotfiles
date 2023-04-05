@@ -1,5 +1,5 @@
 # My .vimrc file
-#### Inspired by other .vimrc files I so along the way :heartpulse:
+#### Inspired by other .vimrc files I saw along the way :heartpulse:
 
 	██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
 	██║   ██║██║████╗ ████║██╔══██╗██╔════╝
