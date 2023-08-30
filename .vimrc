@@ -1,12 +1,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"																				"
-"					██╗   ██╗██╗███╗   ███╗██████╗  ██████╗						"
-"					██║   ██║██║████╗ ████║██╔══██╗██╔════╝						"
-"					██║   ██║██║██╔████╔██║██████╔╝██║							"
-"					╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║							"
-"					 ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗						"
-"					  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝						"
-"																				"
+"										"
+"					██╗   ██╗██╗███╗   ███╗██████╗  ██████╗	"
+"					██║   ██║██║████╗ ████║██╔══██╗██╔════╝	"
+"					██║   ██║██║██╔████╔██║██████╔╝██║	"
+"					╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║	"
+"					 ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗	"
+"					  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝	"
+"										"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " zo to open a single fold under the cursor.
 " zc to close the fold under the cursor.
@@ -86,39 +86,39 @@ augroup END
 
 " STATUSLINE ------------------------------------------------------------ {{{
 " Returns current branch or an empty string if there is no git repository
-function Gitbranch()
-  let l:branchname = trim(system("git -C " . expand("%:h") . " branch --show-current 2>/dev/null"))
-  return strlen(l:branchname) > 0?'   '.l:branchname.'  ':''
-endfunction
+"function Gitbranch()
+"  let l:branchname = trim(system("git -C " . expand("%:h") . " branch --show-current 2>/dev/null"))
+"  return strlen(l:branchname) > 0?'   '.l:branchname.'  ':''
+"endfunction
 
-augroup Gitget
-    autocmd!
-    autocmd BufEnter * let b:git_branch = Gitbranch()
-augroup END
+"augroup Gitget
+"    autocmd!
+"    autocmd BufEnter * let b:git_branch = Gitbranch()
+"augroup END
 
 " Clear status line when vimrc is reloaded.
-set statusline=
+"set statusline=
 
 " Color first block
-set statusline+=%#Visual#
+"set statusline+=%#Visual#
 " Show git if exists.
-set statusline+=%{b:git_branch}
+"set statusline+=%{b:git_branch}
 
 " Color second block
-set statusline+=%#LineNr#
+"set statusline+=%#LineNr#
 " Status line left side.
-set statusline+=\ %n\ %f\ %m\ %Y\ %R
+"set statusline+=\ %n\ %f\ %m\ %Y\ %R
 
 " Use a divider to separate the left side from the right side.
-set statusline+=%=
+"set statusline+=%=
 
 " Color third block
-set statusline+=%#VisualNOS#
+"set statusline+=%#VisualNOS#
 " Status line right side.
-set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c  
+"set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c  
 
 " Show the status on the second to last line.
-set laststatus=2
+"set laststatus=2
 
 " }}}
 
@@ -153,16 +153,20 @@ let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', 
 " }}}
 
 " THEMES --------------------------------------------------------------- {{{
-" ++++++++++++++++++++++++++ "
-"        SpaceGray           "
-" ++++++++++++++++++++++++++ "
-" the spacegrey theme works best for me but there are many 
-" https://github.com/ajh17/Spacegray.vim -- full documentation here
+" ++++++++++++++++++++++++++"
+"        Onedark			"
+" ++++++++++++++++++++++++++"
+" the onedark theme works best for me but there are many 
+" https://github.com/joshdick/onedark.vim -- full documentation here
 " https://colorswat.ch/vim/  -- site to see themes and colors
 
-let g:spacegray_use_italics = 1
+let g:onedark_hide_endofbuffer=1
+let g:onedark_termcolors=256
+let g:onedark_terminal_italics=1
+"https://github.com/vim-airline/vim-airline -- plugin for customize statusline in vim
+let g:airline_theme='onedark'
 
-colorscheme spacegray
+colorscheme onedark
 
 " }}}
 
