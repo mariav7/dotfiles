@@ -1,4 +1,4 @@
-# My .vimrc file
+# My .vimrc and .zshrc file
 #### Inspired by other .vimrc and .zshrc files and other configurations I saw along the way, thank you for inspiring me :heartpulse:
 
 	  ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗                 ███████╗███████╗██╗  ██╗██████╗  ██████╗
