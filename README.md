@@ -9,6 +9,7 @@
 	╚═╝ ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝              ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
 
 Shortcut keys for folds in vim:
+
 **zo** to open a single fold under the cursor
 
 **zc** to close the fold under the cursor
