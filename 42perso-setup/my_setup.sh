@@ -8,17 +8,17 @@ reset=$'\033[0m'
 
 # setup GIT
 
-echo "$blue setup git $reset"
+echo "$blue Setting up git ... $reset"
 
 git config --global user.name "$USER"
 
-echo "$lblue enter email for git $reset"
+echo "$lblue Enter email for git: $reset"
 
 read varname
 
 git config --global user.email $varname
 
-echo "$blue set vim as git core editor $reset"
+echo "$blue Setting VIM as git core editor ... $reset"
 
 git config --global core.editor vim
 
@@ -27,11 +27,11 @@ git config --global core.editor vim
 if [ [ -d "~/.vim/pack/vendor/start/nerdtree" ] ]
 then
 
-echo "$blue NERDTree Installed !! $reset"
+echo "$blue NERDTree is already installed $reset"
 
 else
 
-echo "$blue Cloning NERDTree repo $reset"
+echo "$blue Cloning NERDTree repo ... $reset"
 
 git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
 
@@ -47,17 +47,17 @@ if [ [ -d "~/.vim/pack/vendor/start/Spacegray" ] ]
 
 then
 
-echo "$blue Spacegray Install !! $reset"
+echo "$blue Spacegray theme is already installed $reset"
 
 else
 
-echo "$blue Cloning Spacegray Theme $reset"
+echo "$blue Cloning Spacegray theme ... $reset"
 
 git clone https://github.com/ackyshake/Spacegray.vim.git ~/.vim/pack/vendor/start/Spacegray
 
 fi
 
-echo "$green BASIC SETUP - DONE $reset"
+echo "$green BASIC SETUP [DONE] $reset"
 
 # SETUP VIMRC
 
@@ -66,16 +66,16 @@ then
 
 echo "$orange Backing up current vimrc config $reset"
 
-mv ~/.vimrc ~/Desktop/My_setup-VIM/.vimrc.bak
+mv ~/.vimrc ~/Desktop/Github-perso/vimrc-zshrc-setup/42perso-setup/back-ups/.vimrc.bakup
 
-echo "$orange backed to ~/my_setup $reset"
+echo "$orange backed to ~/Desktop/Github-perso/vimrc-zshrc-setup/42perso-setup/back-ups $reset"
 
 fi
 
-echo "$green Adding 5atchm1n .vimrc $reset"
+echo "$green Adding .vimrc file ... $reset"
 
-cp ~/Desktop/My_setup-VIM/.vimrc ~/.vimrc
+cp ~/Desktop/Github-perso/vimrc-zshrc-setup/42perso-setup/.vimrc ~/.vimrc
 
-echo "$green SETUP COMPLETED $reset"
-echo "$orange check ~/Desktop/My_setup-VIM for backups $reset"
+echo "$green SETUP [COMPLETED] $reset"
+echo "$orange check ~/Desktop/Github-perso/vimrc-zshrc-setup/42perso-setup for backups $reset"
 echo "$blue ENJOY $reset $green  =] $reset"
