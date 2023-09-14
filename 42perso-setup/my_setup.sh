@@ -53,7 +53,7 @@ else
 
 echo "$blue Cloning Spacegray theme ... $reset"
 
-git clone https://github.com/ackyshake/Spacegray.vim.git ~/.vim/pack/vendor/start/Spacegray
+cp -r ~/Desktop/Github-perso/vimrc-zshrc-setup/42perso-setup/themes/Spacegray ~/.vim/pack/vendor/start/
 
 fi
 
