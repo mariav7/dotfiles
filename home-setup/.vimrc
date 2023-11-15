@@ -8,9 +8,10 @@
 "					  ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝	"
 "										"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" zo to open a single fold under the cursor.
-" zc to close the fold under the cursor.
-" zR to open all folds.
+" Shortcut keys for folds in .vimrc file:
+" zo to open a single fold under the cursor
+" zc to close the fold under the cursor
+" zR to open all folds
 " zM to close all folds
 " zf to create a fold
 
@@ -85,6 +86,8 @@ augroup END
 " }}}
 
 " STATUSLINE ------------------------------------------------------------ {{{
+" ALL THIS SECTION IS COMMENTED BECAUSE WE HAVE AIRLINE THEME INSTALLED
+
 " Returns current branch or an empty string if there is no git repository
 "function Gitbranch()
 "  let l:branchname = trim(system("git -C " . expand("%:h") . " branch --show-current 2>/dev/null"))
@@ -150,6 +153,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Have nerdtree ignore certain files and directories.
 let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
 
+" Create a new file inside vim with NERDTree
+" Ctrl + n
+" Navigate to the directory in which the new file should live
+" Press 'm' (Brings up the NERDTree Filesystem)
+" Choose 'a' (Add child node)
+
 " }}}
 
 " THEMES --------------------------------------------------------------- {{{
@@ -194,5 +203,12 @@ noremap <c-up> <c-w>+
 noremap <c-down> <c-w>-
 noremap <c-left> <c-w>>
 noremap <c-right> <c-w><
+
+" Insert Header42
+" fn + F1
+" normal mode + :Stdheader
+
+" See maps
+" normal mode + :map
 
 " }}}

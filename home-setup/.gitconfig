@@ -1,0 +1,37 @@
+# Put this in your ~/.gitconfig or ~/.config/git/config
+# Windows users: "~" is your profile's home directory, e.g. C:\Users\<YourName>
+[user]
+        name = chelo
+        email = mflores-@student.42.fr
+[color]
+        # Enable colors in color-supporting terminals
+        ui = auto
+[core]
+        editor = vim
+[color "branch"]
+        # Blue on black is hard to read in git branch -vv: use cyan instead
+        upstream = cyan
+[alias]
+        # Show all branches
+        br = branch -av
+        # List available aliases
+        aliases = !git config --get-regexp alias | sed -re 's/alias\\.(\\S*)\\s(.*)$/\\1 = \\2/g'
+        # Display tree-like log, because default log is a pain…
+        glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        logg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+        # Useful when you have to update your last commit with staged files without editing the commit message.
+        oops = commit --amend --no-edit
+        # Ensure that force-pushing won't lose someone else's work (only mine).
+        push-with-lease = push --force-with-lease
+        # List local commits that were not pushed to remote repository
+        review-local = "!git lg @{push}.."
+        # Edit last commit message
+        reword = commit --amend
+        # Undo last commit but keep changed files in stage
+        uncommit = reset --soft HEAD~1
+[url "https://github.com/mariav7/"]
+        # git clone gh-perso:repo_name.git
+        insteadOf = gh-perso:
+[url "https://github.com/"]
+        # git clone gh:repo_name.git
+        insteadOf = gh:

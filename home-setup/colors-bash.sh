@@ -1,5 +1,12 @@
 #! /bin/bash
 
+# This Bash script is a simple tool designed to print colorful text in the terminal using ANSI escape codes.
+# Its primary purpose is to aid users in checking how their current terminal handles different ANSI escape 
+# codes for text and background colors.
+
+# This script is particularly valuable if working with themes in tools like zsh, vim, etc... as specific 
+# color configurations are often required for optimal functionality.
+
 n=32
 arg=setaf
 text='Hello World! This is %s %d'
