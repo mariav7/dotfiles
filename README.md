@@ -29,7 +29,7 @@ Now, I'm sharing my dotfiles with the hope that they might be useful or inspirin
      * `zf` to create a fold
    * File system explorer: [NERDTree](https://github.com/preservim/nerdtree)
    * Vim theme: [Onedark](https://github.com/joshdick/onedark.vim)
-   * Statusline theme: [Lightline](https://github.com/itchyny/lightline.vim)
+   * Statusline theme: [vim-airline](https://github.com/vim-airline/vim-airline)
    * Plugins: [42Header](https://github.com/42Paris/42header)
 2. **`.zshrc`** file
    * Zsh theme: [Dracula](https://draculatheme.com/zsh)
